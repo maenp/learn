@@ -1,3 +1,6 @@
+import { router } from '@kit.ArkUI';
+import { BusinessError } from '@kit.BasicServicesKit';
+
 @Entry
 @Component
 struct Second {
@@ -12,8 +15,16 @@ struct Second {
         }
         .type(ButtonType.Capsule).margin({top: 20})
         .backgroundColor('#0D9FFB')
-        .width('40%')
-        .height('5%')
+        .width('40%').height('5%')
+        .onClick(()=>{
+          console.log('click Back')
+          try {
+            router.back()
+            console.info('click Back success')
+          } catch (err) {
+            console.info('click Back error', err)
+          }
+        })
       }
       .width('100%')
     }

@@ -1,3 +1,7 @@
+import { router } from '@kit.ArkUI';
+import { BusinessError } from '@kit.BasicServicesKit';
+
+
 @Entry
 @Component
 struct Index {
@@ -16,6 +20,14 @@ struct Index {
         .type(ButtonType.Capsule).margin({top: 20})
         .backgroundColor('#0D9FFB')
         .width('40%').height('5%')
+        .onClick(()=>{
+          console.info('click Next')
+          router.pushUrl({url: 'pages/Second'}).then(()=>{
+            console.info('click Next success')
+          }).catch((err: BusinessError)=>{
+            console.info('click Next error', err)
+          })
+        })
       }.width('100%')
     }.height('100%')
   }
