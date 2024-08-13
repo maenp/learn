@@ -22,7 +22,8 @@ struct Second {
             router.back()
             console.info('click Back success')
           } catch (err) {
-            console.info('click Back error', err)
+            const error = err as BusinessError;
+            console.info('click Back error', error)
           }
         })
       }
